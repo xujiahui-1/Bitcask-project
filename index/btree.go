@@ -7,11 +7,18 @@ import (
 	"sync"
 )
 
-// BTree 实现btree数据结构来存储索引
+// BTree 实现btree数据结构来存储索引(基于内存的)
 // BTree google btree github.com/google/btree
 type BTree struct {
 	tree *btree.BTree
 	lock *sync.RWMutex
+}
+
+// NewBTree  初始化BTree 索引结构
+func NewBTree() *BTree {
+
+	//TODO 这里的32表示叶子节点的数量，我们可以提供让用户选择次参数，
+	return &BTree{tree: btree.New(32), lock: new(sync.RWMutex)}
 }
 
 // Item 实现Item interface  定义自己的key 对比结构
