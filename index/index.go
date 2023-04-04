@@ -1,1 +1,5 @@
 package index
+
+func main() {
+
+}
